@@ -6,8 +6,8 @@ Welcome to the Short URL project! This project is a simple URL shortening servic
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Using the Postman Collection](#Using_the_Postman_Collection)
 - [Routes](#routes)
-- [Views](#views)
 
 ## Installation
 
