@@ -13,8 +13,8 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use("/url", urlRoute);
-app.use("/", staticRouter);
+app.use("/url", urlRoute); // for operations
+app.use("/", staticRouter); // for views
 // app.get("/test", async (req, res) => {
 //   const allUrls = await URL.find({});
 //   return res.render("home", {
