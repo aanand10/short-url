@@ -8,8 +8,6 @@ Welcome to the Short URL project! This project is a simple URL shortening servic
 - [Usage](#usage)
 - [Routes](#routes)
 - [Views](#views)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -80,4 +78,3 @@ To make it easier to test the API endpoints, you can utilize the provided Postma
   ```json
   { "url": "https://google.com" }
   ```
-
