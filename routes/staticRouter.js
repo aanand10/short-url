@@ -8,5 +8,11 @@ router.get("/", async (req, res) => {
     urls: allUrls,
   });
 });
+router.get("/signup", async (req, res) => {
+  const allUrls = await URL.find({});
+  return res.render("signup", {
+    urls: allUrls,
+  });
+});
 
 module.exports = router;
