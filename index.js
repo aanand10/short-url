@@ -4,7 +4,8 @@ const path = require("path");
 const urlRoute = require("./routes/url");
 const staticRouter = require("./routes/staticRouter");
 const userRouter = require("./routes/user");
-
+const cookieParser = require("cookie-parser");
+const { restrictToLoggedinUserOnly } = require("./middlewares/auth");
 const URL = require("./models/URL");
 
 const { connectToMongoDB } = require("./connect");
@@ -17,8 +18,10 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use("/url", urlRoute); // for operations
+app.use(cookieParser());
+
 app.use("/", staticRouter); // for views
+app.use("/url", restrictToLoggedinUserOnly, urlRoute); // for operations
 app.use("/user", userRouter);
 // app.get("/test", async (req, res) => {
 //   const allUrls = await URL.find({});

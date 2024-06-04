@@ -11,14 +11,19 @@ async function handleGenerateNewShortURL(req, res) {
     if (linkPresent) {
       return res.status(400).json({ err: "url is alrady used" });
     }
+
     const shortId = nanoid(8);
+
     await URL.create({
       shortId: shortId,
       redirectURL: body.url,
       visitHistory: [],
+      createdBy: req.user._id,
     });
 
     const allUrls = await URL.find({});
+    const urlofUser = allUrls.map((url) => url._id === req.user_id);
+    console.log(urlofUser);
 
     return res.render("home", {
       urls: allUrls,
